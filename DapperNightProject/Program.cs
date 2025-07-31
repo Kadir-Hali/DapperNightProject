@@ -1,6 +1,15 @@
+using DapperNightProject.Context;
+using DapperNightProject.Services.DepartmentServices;
+using DapperNightProject.Services.EmployeeServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<DapperContext>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
