@@ -9,5 +9,6 @@ namespace DapperNightProject.Services.EmployeeServices
         Task UpdateEmployeeAsync(UpdateEmployeeDto updateEmployeeDto);
         Task DeleteEmployeeAsync(int id);
         Task<GetEmployeeByIdDto> GetEmployeeByIdAsync(int id);
+        Task<List<ResultEmployeeWithDepartmentDto>> GetEmployeeWithDepartmentAsync();
     }
 }

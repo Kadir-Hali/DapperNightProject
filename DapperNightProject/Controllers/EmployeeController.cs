@@ -19,6 +19,11 @@ namespace DapperNightProject.Controllers
             return View(values);
         }
 
+        public async Task<IActionResult> EmployeeListWithDepartment()
+        {
+            var values = await _employeeService.GetEmployeeWithDepartmentAsync();
+            return View(values);
+        }
         [HttpGet]
         public IActionResult CreateEmployee()
         {
