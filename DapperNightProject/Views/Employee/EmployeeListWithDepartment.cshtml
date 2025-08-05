@@ -1,18 +1,33 @@
-﻿
+﻿@model List<DapperNightProject.Dtos.EmployeeDtos.ResultEmployeeWithDepartmentDto>
+
 @{
     Layout = null;
 }
 
-<!DOCTYPE html>
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>EmployeeListWithDepartment</title>
-</head>
-<body>
-</body>
-</html>
-
-
-@* 00:50. dakika *@@* 00:50. dakika *@
+<div class="container">
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Personel Ad Soyad</th>
+            <th>Personel Maaş</th>
+            <th>Personel Departman</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeId</td>
+                <td>@item.Name @item.Surname</td>
+                <td>@item.Salary</td>
+                <td>@item.DepartmentName</td>
+                <td><a href="/Employee/DeleteEmployee/@item.EmployeeId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Employee/UpdateEmployee/@item.EmployeeId" class="btn btn-warning">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Employee/CreateEmployee/" class="btn btn-success">Yeni Personel Girişi</a>
+</div>
